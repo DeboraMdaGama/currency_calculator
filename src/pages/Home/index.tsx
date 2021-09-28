@@ -5,8 +5,14 @@ import Picker from '../../components/Picker';
 import { styles } from './styles';
 import api from '../../services/api';
 
+interface IMoedas{
+  key: string,
+  label: string,
+  value: string
+}
+
 export default function Home() {
-  const [moedas, setMoedas] = useState<Object[]>([]);
+  const [moedas, setMoedas] = useState<IMoedas[]>([]);
   const [loading, setLoading] = useState(true);
 
   const [moedaSelecionada, setMoedaSelecionada] = useState('');
@@ -19,7 +25,7 @@ export default function Home() {
     async function loadMoedas(){
       const response = await api.get('all');
       
-      let arrayMoedas:Array<Object> = []
+      let arrayMoedas:Array<IMoedas> = []
       Object.keys(response.data).map((key:string)=>{
         arrayMoedas.push({
           key: key,
