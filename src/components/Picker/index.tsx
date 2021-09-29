@@ -12,8 +12,8 @@ export default function Picker(props:any){
   return(
     <RNPickerSelect
     placeholder={placeholder}
-    items={props.moedas}
-    onValueChange={ (valor) => props.onChange(valor)  }
+    items={props.currency}
+    onValueChange={ (value) => props.onChange(value)  }
     style={{
       inputIOS:{
        fontSize:20,
